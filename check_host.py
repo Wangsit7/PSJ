@@ -1,13 +1,12 @@
-import subprocess
 import sys
-
+import subprocess
 
 if(len(sys.argv) <= 1):
-    print("IP address belum diberikan!")
+    print("IP address belum diberikan")
 else:
-    ping = ['ping', '-c1', sys.argv[1]]
-    check = subprocess.check_output(ping)
-    if(check):
-        print('UP')
+    cmd = sys.argv[1]
+    status, res = subprocess.getstatusoutput("ping -c1 " + cmd)
+    if(status == 0):
+        print(f'{cmd} UP')
     else:
-        print('DOWN')
+        print(f'{cmd} DOWN')
