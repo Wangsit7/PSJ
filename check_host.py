@@ -1,9 +1,12 @@
-import os
+import sys
+import subprocess
 
-hostname = "192.168.43.34"
-response = os.system("ping -c 1 " + hostname)
-
-if response == 0:
-    print(hostname, "UP")
+if(len(sys.argv) <= 1):
+    print("IP address belum diberikan")
 else:
-    print(hostname, "DOWN")
+    cmd = sys.argv[1]
+    status, res = subprocess.getstatusoutput("ping -c1 " + cmd)
+    if(status == 0):
+        print(f'{cmd} UP')
+    else:
+        print(f'{cmd} DOWN')
