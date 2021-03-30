@@ -4,7 +4,7 @@ import time
 
 T1 = time.perf_counter()
 i = 0
-hosts = ['192.168.1.10', '192.168.1.12', '192.168.1.3', '8.8.8.8', '8.8.4.4']
+hosts = ['192.168.1.1', '192.168.1.2', '192.168.1.3', '8.8.8.8', '8.8.4.4']
 
 def check_host():
     status, result = subprocess.getstatusoutput("ping -c1 " + hosts[i])
